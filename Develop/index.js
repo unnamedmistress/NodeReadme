@@ -20,9 +20,10 @@ const questions = [
       name: 'problemSolved'
   },
   {
-    type: 'input',
+    type: 'list',
     message: 'What installation did you use (inquirer)',
     name: 'installation',
+    choices: ['inquirer', 'Other'],
     
   },
   {
@@ -34,7 +35,7 @@ const questions = [
   },
   {
     type: 'input',
-     message: 'Who gets the credit (you)',
+     message: 'Who contributed to the project?',
     name: 'credit',
    
   },
@@ -46,13 +47,23 @@ const questions = [
   },
   {
     type: 'input',
-    message: 'Intended usage',
+    message: 'Describe the intended usage',
     name: 'intendedUsage',
     
   },
+  {
+    type: 'input',
+    message: 'Tests performed',
+    name: 'Tests',
+    
+  },
+  {
+    type: 'input',
+    message: 'Questions? Add your Github and email',
+    name: 'questions',
+    
+  },
 ];
-
-
 function init() {
   
 inquirer
@@ -68,17 +79,31 @@ inquirer
           const licenseBadge = renderLicenseBadge(jsonData.license);
           const link = renderLicenseLink(jsonData.license);
           let readme = `
-          # Title: ${jsonData.reasonForBuild}\n\n
-          ## Problem Solved \n${jsonData.problemSolved}\n\n
-          ## Installation \n${jsonData.installation}\n\n
-          ## License and Link: ${link}\n${licenseBadge}\n\n
-          ## Credit \n${jsonData.credit}\n\n
-          ## Installation Steps \n${jsonData.installationSteps}\n\n
-          ## Intended Usage \n${jsonData.intendedUsage}`;
+${licenseBadge}
+# Table of Contents
+1. [Title: ${jsonData.reasonForBuild}](#title)
+2. [Description/Problem Solved](#description)
+3. [Installation](#installation)
+4. [License and Link: ](#license)
+5. [Credit](#credit)
+6. [Installation Steps](#installation-steps)
+7. [Intended Usage](#intended-usage)
+8. [Tests?](#Tests)
+9. [Questions?](#questions)
+
+# Title: ${jsonData.reasonForBuild}
+## Description/Problem Solved \n${jsonData.problemSolved}
+## Installation \n${jsonData.installation}
+## License and Link: ${link}\n
+## Credit \n${jsonData.credit}
+## Installation Steps \n${jsonData.installationSteps}
+## Intended Usage \n${jsonData.intendedUsage}
+## Tests? \n ${jsonData.Tests}
+## Questions? \n ${jsonData.questions}\n`;
           // Append the badge to the readme file
-          fs.writeFile("readme.md", readme, (err) => {
+          fs.writeFile("README.md", readme, (err) => {
               if (err) throw err;
-              console.log("readme.md file created");});
+              console.log("README.md file created");});
 
           })
     });
