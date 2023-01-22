@@ -1,0 +1,11 @@
+{
+	"reasonForBuild": "To generate a Readme",
+	"problemSolved": "This will generate a professional Readme with prompts using Node Js",
+	"installation": "inquirer",
+	"license": "MIT",
+	"credit": "Chrysti Reichert",
+	"installationSteps": "Install Inquirer and Node Js",
+	"intendedUsage": "Used to create a professional readme",
+	"Tests": "Tested and performs well",
+	"questions": "unnamedmistress@github.com or email momchrysti@gmail.com"
+}

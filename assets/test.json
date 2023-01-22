@@ -1,0 +1,11 @@
+{
+	"reasonForBuild": "test",
+	"problemSolved": "test",
+	"installation": "inquirer",
+	"license": "MIT",
+	"credit": "test",
+	"installationSteps": "test",
+	"intendedUsage": "test",
+	"Tests": "test",
+	"questions": "test"
+}
